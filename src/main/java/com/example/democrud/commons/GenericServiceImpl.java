@@ -9,6 +9,7 @@ import java.util.Optional;
  * para poder utilizar este método --> public abstract CrudRepository<T, ID> getDao();
  * se realiza la siguiente importación*/
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
 /*
  * Esta clase va a implementar la interfaz GenericServiceAPI<T, ID >
@@ -18,6 +19,8 @@ import org.springframework.data.repository.CrudRepository;
 
 /*
  * El extends de Serializabledebe ser en la interfaz de la clase y no en la implementacion*/
+
+@Service
 public abstract class GenericServiceImpl <T, ID extends Serializable> implements GenericServiceAPI<T, ID>  {
 
 	/*

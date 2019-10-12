@@ -1,6 +1,12 @@
 package com.example.democrud.service.api;
 
-public class PersonaServiceAPI {
+import com.example.democrud.commons.GenericServiceAPI;
+import com.example.democrud.model.Persona;
+
+/*
+ * La interfaz */
+
+public interface PersonaServiceAPI extends GenericServiceAPI <Persona, Long> {
 
 	
 }
