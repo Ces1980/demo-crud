@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<!-- Agregando thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Administración personas</title>
+
+<!-- Bosstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheeet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+
+	<div class="container">
+		<br>
+		<!--Enlace que se ve como un botón y que nos lleva a la URL de guardar pero con el Id null -->
+		<div>
+			<a href="/save/null" class="btn btn-primary">Agregar</a>
+		</div>
+		<!--Agregamos una anotación de tipo thymeleaf para usar un switch y listar a las personas -->
+		<div th:switch="${list}">
+		<!-- En caso de no haber usuarios se hace la siguiente declaración-->
+			<h2 th:case="null">No hay personas</h2>
+		<!-- Si hay usuarios, con el siguiente case se lista las propiedades de la clase  persona -->
+			<div th:case="*">
+				<h2>Personas</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Dirección</th>
+							<th>Teléfono</th>
+						</tr>
+					</thead>
+							<!--Agregamos una anotación de tipo thymeleaf  en el tbody
+							   para th:each __función parecida al forEach en Java  --> 
+					
+					<tbody>
+						<tr th:each="persona : ${list}">
+						<!--td define la celda de una tabla que contiene datos. Esta participa en el modelo de tablas.   -->
+							<td th:text="${persona.nombre}">
+							<td th:text="${persona.apellido}">
+							<td th:text="${persona.direccion}">
+							<td th:text="${persona.telefono}">
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
