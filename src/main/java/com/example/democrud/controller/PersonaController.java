@@ -66,7 +66,7 @@ public class PersonaController {
 	
 	
 	/*Método que permite eliminar al usuario*/
-	
+	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model){
 		personaServiceAPI.delete(id);
 		return "redirect:/";

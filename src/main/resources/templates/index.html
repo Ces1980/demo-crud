@@ -32,6 +32,8 @@
 							<th>Apellido</th>
 							<th>Dirección</th>
 							<th>Teléfono</th>
+							<th></th>
+							<th></th>
 						</tr>
 					</thead>
 							<!--Agregamos una anotación de tipo thymeleaf  en el tbody
@@ -44,6 +46,9 @@
 							<td th:text="${persona.apellido}">
 							<td th:text="${persona.direccion}">
 							<td th:text="${persona.telefono}">
+							<td><a th:href="@{/save/{id} (id=${persona.id})}">Editar</a></td>
+							<td><a th:href="@{/delete/{id} (id=${persona.id})}">Eliminar</a></td>
+							
 						</tr>
 					</tbody>
 				</table>
